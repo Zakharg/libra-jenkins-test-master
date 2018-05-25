@@ -238,4 +238,13 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<distributionManagement>
+		<repository>
+			<id>maven-snapshots</id>
+			<!-- <url>http://10.6.33.20:8081/repository/maven-snapshots</url> -->
+			<url>http://10.6.33.20:8081/repository/maven-snapshots</url>
+		</repository>
+	</distributionManagement>
+
+
 </project>
