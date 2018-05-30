@@ -125,24 +125,24 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-                <plugin>
-                    <groupId>com.spotify</groupId>
-                    <artifactId>docker-maven-plugin</artifactId>
-                    <version>1.0.0</version>
-                    <configuration>
-                        <baseImage>openjdk:8-jdk-alpine</baseImage>
-                        <entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
-                        <imageName>${docker.baseUri}/libra/${project.artifactId}</imageName>
-                        <resources>
-                            <resource>
-                                <directory>${project.build.directory}</directory>
-                                <include>${project.build.finalName}.jar</include>
-                            </resource>
-                        </resources>
-                        <serverId>repository.devops.libra.tech:8445</serverId>
-                        <useGitCommitId>true</useGitCommitId>
-                    </configuration>
-                </plugin>			
+				<plugin>
+					<groupId>com.spotify</groupId>
+					<artifactId>docker-maven-plugin</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<baseImage>openjdk:8-jdk-alpine</baseImage>
+						<entryPoint>["java", "-jar", "${project.build.finalName}.jar"]</entryPoint>
+						<imageName>${docker.baseUri}/libra/${project.artifactId}</imageName>
+						<resources>
+							<resource>
+								<directory>${project.build.directory}</directory>
+								<include>${project.build.finalName}.jar</include>
+							</resource>
+						</resources>
+						<serverId>repository.devops.libra.tech:8445</serverId>
+						<useGitCommitId>true</useGitCommitId>
+					</configuration>
+				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
@@ -257,10 +257,13 @@
 	</dependencyManagement>
 
 	<distributionManagement>
-		<repository>
+		<snapshotRepository>
 			<id>maven-snapshots</id>
-			<!-- <url>http://10.6.33.20:8081/repository/maven-snapshots</url> -->
 			<url>http://10.6.33.20:8081/repository/maven-snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>maven-releases</id>
+			<url>http://10.6.33.20:8081/repository/maven-releases/</url>		
 		</repository>
 	</distributionManagement>
 
